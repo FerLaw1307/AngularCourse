@@ -1,6 +1,5 @@
-import { Component, computed, signal } from '@angular/core';
-import { USUARIOS_FALSOS } from '../fake-users';
-const indexRandom = Math.floor(Math.random() * USUARIOS_FALSOS.length);
+import { Component, Input } from '@angular/core';
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -9,16 +8,11 @@ const indexRandom = Math.floor(Math.random() * USUARIOS_FALSOS.length);
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  selectedUser = signal(USUARIOS_FALSOS[indexRandom]);
+  @Input({ required: true }) avatar!: string;
+  @Input({ required: true }) userName!: string;
 
-  imageRoute = computed(() => 'assets/usuarios/' + this.selectedUser().avatar);
-  // get imageRoute(){
-  //   return 'assets/usuarios/' + this.selectedUser.avatar;
-  // }
-
-  onSelectUser() {
-    console.log('Click!!');
-    const indexRandom = Math.floor(Math.random() * USUARIOS_FALSOS.length);
-    this.selectedUser.set(USUARIOS_FALSOS[indexRandom]);
+  get routeImage() {
+    return 'assets/usuarios/' + this.avatar;
   }
+  onSelectUser() {}
 }
