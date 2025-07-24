@@ -12,8 +12,8 @@ export class UserComponent {
   @Input({ required: true }) avatar!: string;
   @Input({ required: true }) userName!: string;
   @Input({ required: true }) id!: string;
-  // @Output() selected = new EventEmitter();
-  selected = output<string>();
+  @Output() selected = new EventEmitter<string>();
+
   get routeImage() {
     return this.URL_USERS_IMAGES + this.avatar;
   }
