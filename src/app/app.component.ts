@@ -12,8 +12,8 @@ import { USUARIOS_FALSOS } from './fake-users';
 })
 export class AppComponent {
   users = USUARIOS_FALSOS;
-  userIdSelected = 'u1';
-  get selectedUser(){
+  userIdSelected?: string;
+  get selectedUser() {
     return this.users.find((u) => u.id === this.userIdSelected)!;
   }
   onSelectedUser(id: string) {
