@@ -1,16 +1,5 @@
 import { Component, EventEmitter, Input, Output, output } from '@angular/core';
-
-interface Usuario {
-  id: string;
-  nombre: string;
-  avatar: string;
-}
-
-// type Usuario = {
-//   id: string;
-//   nombre: string;
-//   avatar: string;
-// };
+import { Usuario } from './usuario.model';
 @Component({
   selector: 'app-user',
   standalone: true,

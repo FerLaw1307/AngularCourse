@@ -2,15 +2,16 @@
 <main>
   <ul id="users">
     @for(usuario of users; track usuario.id){
-      <li>
-        <app-user [user]="usuario" (selected)="onSelectedUser($event)" />
-      </li>
+    <li>
+      <app-user [user]="usuario" (selected)="onSelectedUser($event)" />
+    </li>
     }
   </ul>
   @if(selectedUser){
-    <app-tasks [userName]="selectedUser.nombre"></app-tasks>
+    <app-tasks 
+    [idUsuario]="selectedUser.id"
+    [userName]="selectedUser.nombre"></app-tasks>
   }@else {
     <p id="textoCondicional">Selecciona un usuario de la lista.</p>
   }
-  
 </main>
