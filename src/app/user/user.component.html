@@ -1,5 +1,5 @@
 <div>
-  <button (click)="onSelectUser()">
+  <button [class.active]="seleccionado" (click)="onSelectUser()">
     <img [src]="routeImage" [alt]="user.nombre" />
     <span>{{ user.nombre }}</span>
   </button>

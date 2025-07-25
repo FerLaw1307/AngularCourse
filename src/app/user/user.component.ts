@@ -10,6 +10,7 @@ import { Usuario } from './usuario.model';
 export class UserComponent {
   URL_USERS_IMAGES = 'assets/usuarios/';
   @Input({ required: true }) user!: Usuario;
+  @Input({ required: true }) seleccionado!: boolean;
   @Output() selected = new EventEmitter<string>();
 
   get routeImage() {
