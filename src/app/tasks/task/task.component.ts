@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Tarea } from './tarea.model';
 
 @Component({
@@ -10,4 +10,9 @@ import { Tarea } from './tarea.model';
 })
 export class TaskComponent {
   @Input({ required: true }) task!: Tarea;
+  @Output() terminada = new EventEmitter<string>();
+
+  onCompletedTask(){
+    this.terminada.emit(this.task.id);
+  }
 }

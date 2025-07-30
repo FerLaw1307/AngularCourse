@@ -8,7 +8,7 @@
   <ul>
     @for (task of tareasUsuarioSeleccionado; track task.id) {
     <li>
-      <app-task [task]="task"></app-task>
+      <app-task [task]="task" (terminada)="onCompletedTask($event)" ></app-task>
     </li>
     }
   </ul>
