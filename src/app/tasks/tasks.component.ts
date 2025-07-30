@@ -1,16 +1,18 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
+import { NewTaskComponent } from "./new-task/new-task.component";
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [TaskComponent],
+  imports: [TaskComponent, NewTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css',
 })
 export class TasksComponent {
   @Input({ required: true }) idUsuario!: string;
   @Input({ required: true }) userName!: string;
+  areAddNewTask: boolean = false;
 
   get tareasUsuarioSeleccionado(){
     return this.tasks.filter((t) => t.idUsuario == this.idUsuario);
@@ -18,6 +20,14 @@ export class TasksComponent {
 
   onCompletedTask(id: string){
     this.tasks = this.tasks.filter((t) => t.id !== id);
+  }
+
+  onInitNewTask(){
+    this.areAddNewTask = !this.areAddNewTask;
+  }
+
+  onCancelNewTask(){
+    this.areAddNewTask = false;
   }
 
   tasks = [
