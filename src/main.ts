@@ -16,4 +16,4 @@ import { AppModule } from "./app/app.module";
 //     ],
 // }).catch((err) => console.error(err));
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+platformBrowserDynamic().bootstrapModule(AppModule); // bootstrapmodule se le conoce como el modulo raíz.
