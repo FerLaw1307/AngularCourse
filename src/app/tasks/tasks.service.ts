@@ -3,6 +3,14 @@ import { type NewTaskInfo } from './task/tarea.model';
 
 @Injectable({ providedIn: 'root' })
 export class TasksService {
+  constructor() 
+  {
+    const tasks = localStorage.getItem('tasks');
+    if(tasks){
+        this.tasks = JSON.parse(tasks);
+    }
+  }
+
   getUserTasks(userId: string) {
     return this.tasks.filter((t) => t.idUsuario == userId);
   }
@@ -16,11 +24,17 @@ export class TasksService {
       idUsuario: idUsuario,
     };
 
-    this.tasks.push(newTask);
+    this.tasks.unshift(newTask);
+    this.saveTasks();
   }
 
   deleteTask(id: string) {
     this.tasks = this.tasks.filter((t) => t.id !== id);
+    this.saveTasks();
+  }
+
+  private saveTasks(){
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
   private tasks = [
