@@ -5,3 +5,9 @@ export interface Tarea {
   resumen: string;
   expira: string;
 }
+
+export interface NewTaskInfo {
+  titulo: string;
+  resumen: string;
+  fecha: string;
+}

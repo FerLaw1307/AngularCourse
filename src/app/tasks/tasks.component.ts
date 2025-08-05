@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from "./new-task/new-task.component";
+import { type NewTaskInfo } from './task/tarea.model';
 
 @Component({
   selector: 'app-tasks',
@@ -27,6 +28,20 @@ export class TasksComponent {
   }
 
   onCancelNewTask(){
+    this.areAddNewTask = false;
+  }
+
+  onAddingTask(infoTask: NewTaskInfo){
+    var newTask = {
+      id: new Date().getTime().toString(),
+      titulo : infoTask.titulo,
+      resumen : infoTask.resumen,
+      expira: infoTask.fecha,
+      idUsuario : this.idUsuario
+    }
+
+    this.tasks.push(newTask);
+    // this.tasks.unshift(newTask);
     this.areAddNewTask = false;
   }
 
