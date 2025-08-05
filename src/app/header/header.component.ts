@@ -2,7 +2,6 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: 'j-header',
-    standalone: true,
     templateUrl: './header.component.html',
     styleUrl:'./header.component.css'
 })
