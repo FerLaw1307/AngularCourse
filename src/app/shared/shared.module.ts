@@ -3,6 +3,6 @@ import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [CardComponent],
-  exports: [], //modulos disponibles que potencialmente se quieran compartir
+  exports: [CardComponent], //modulos disponibles que potencialmente se quieran compartir con cualquier componente importado en el modulo donde se importe.
 })
 export class SharedModule {}
